@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pequeños Exploradores - Colegio Preescolar</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Encabezado */
+        header {
+            background: linear-gradient(135deg, #4CAF50, #2196F3);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 70px;
+            margin-right: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1516627145497-ae69578cf06a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #FF9800;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #F57C00;
+            transform: translateY(-3px);
+        }
+        
+        /* Secciones */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2196F3;
+            font-size: 2.2rem;
+        }
+        
+        .about {
+            background: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Programas */
+        .programs {
+            background: #f0f7ff;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .program-card:hover .program-image img {
+            transform: scale(1.1);
+        }
+        
+        .program-info {
+            padding: 20px;
+        }
+        
+        .program-info h3 {
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+        
+        /* Galería */
+        .gallery {
+            background: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Contacto */
+        .contact {
+            background: #f0f7ff;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info, .contact-form {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: #2196F3;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            margin-right: 10px;
+            color: #2196F3;
+            width: 20px;
+        }
+        
+        .map {
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            padding: 0 15px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: #FF9800;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #FF9800;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #555;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: #2196F3;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                margin-bottom: 30px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <!-- Logo simulado con un círculo de colores -->
+                    <svg height="70" width="70">
+                        <circle cx="35" cy="35" r="30" fill="#FF9800" />
+                        <circle cx="25" cy="25" r="10" fill="#2196F3" />
+                        <circle cx="45" cy="25" r="10" fill="#4CAF50" />
+                        <circle cx="35" cy="45" r="10" fill="#E91E63" />
+                    </svg>
+                    <h1>Pequeños Exploradores</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#programas">Programas</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h2>Bienvenidos a
+            C.P.E.P. GRAL FRANCISCO DE MIRANDA</h2>
+            <p>Donde cada día es una nueva aventura para aprender, crecer y descubrir el mundo</p>
+            <a href="#contacto" class="btn">Solicitar Información</a>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>En <strong>Pequeños Exploradores</strong>, creemos que los primeros años de vida son fundamentales para el desarrollo integral de los niños. Nuestro enfoque se basa en proporcionar un ambiente seguro, estimulante y afectuoso donde los niños puedan desarrollar su curiosidad natural y amor por el aprendizaje.</p>
+                    <p>Nuestro equipo de educadores altamente calificados está comprometido con el desarrollo cognitivo, emocional, social y físico de cada niño, respetando su individualidad y ritmo de aprendizaje.</p>
+                    <p>Contamos con instalaciones modernas y seguras diseñadas específicamente para las necesidades de los niños en edad preescolar, con espacios amplios para el juego, áreas de aprendizaje especializadas y un patio exterior con áreas verdes.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Niños jugando en el colegio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Programas -->
+    <section class="programs" id="programas">
+        <div class="container">
+            <h2 class="section-title">Nuestros Programas</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Programa Maternal">
+                    </div>
+                    <div class="program-info">
+                        <h3>Maternal (1-2 años)</h3>
+                        <p>Programa diseñado para los más pequeños, enfocado en el desarrollo sensoriomotor, la seguridad emocional y las primeras interacciones sociales.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1516627145497-ae69578cf06a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Programa Prekínder">
+                    </div>
+                    <div class="program-info">
+                        <h3>Prekínder (3 años)</h3>
+                        <p>Enfocado en el desarrollo del lenguaje, habilidades sociales básicas y la exploración del entorno a través del juego guiado.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Programa Kínder">
+                    </div>
+                    <div class="program-info">
+                        <h3>Kínder (4-5 años)</h3>
+                        <p>Preparación para la primaria con enfoque en lectoescritura inicial, matemáticas básicas, habilidades sociales y autonomía.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Galería -->
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <h2 class="section-title">Nuestro Día a Día</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Actividades en el aula">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Juego al aire libre">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Arte y manualidades">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Celebraciones especiales">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Actividades musicales">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Aprendizaje práctico">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-details">
+                        <p><i>📍</i> Av. Principal 123, Colonia Jardín, Ciudad</p>
+                        <p><i>📞</i> (555) 123-4567</p>
+                        <p><i>✉️</i> info@pequenosexploradores.edu</p>
+                        <p><i>🕒</i> Lunes a Viernes: 7:00 am - 6:00 pm</p>
+                    </div>
+                    <div class="map">
+                        <!-- Mapa simulado -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.888614283253!2d-99.16994948509317!3d19.42702074620235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5bd1563%3A0x6c366f0e2de02ff7!2sEl%20%C3%81ngel%20de%20la%20Independencia!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Solicita Información</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="child-age">Edad del niño/a</label>
+                            <input type="text" id="child-age">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Pequeños Exploradores</h3>
+                    <p>Formando mentes curiosas y corazones bondadosos desde 2005.</p>
+                    <div class="social-icons">
+                        <a href="#"><i>f</i></a>
+                        <a href="#"><i>in</i></a>
+                        <a href="#"><i>ig</i></a>
+                        <a href="#"><i>yt</i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#programas">Programas</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Horarios</h3>
+                    <ul>
+                      <h3>Mañana</h3>
+                        <li>Lunes a Viernes: 7:00 am - 12:00 pm</li>
+                        <h3>Tarde</h3>
+                        <li>Lunes a Viernes: 1:00 pm - 5:00 pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 C.P.E.P. Gral Francisco De Miranda - Colegio Inicial. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
