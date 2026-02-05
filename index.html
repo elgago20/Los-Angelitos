@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los Angelitos - Colegio Inicial</title>
+    <title>C.P.E.P. Gral Francisco De Miranda - Colegio Inicial</title>
     <style>
         /* Estilos generales */
         * {
@@ -170,9 +170,74 @@
             display: block;
         }
         
+        /* Misión y Visión */
+        .mission-vision {
+            background: #f0f7ff;
+        }
+        
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .mission-card, .vision-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .mission-card h3, .vision-card h3 {
+            color: #2196F3;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .mission-card p, .vision-card p {
+            line-height: 1.8;
+        }
+        
+        .peic-lema {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .peic-lema h3 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .peic-lema p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .peic-lema .lema {
+            font-style: italic;
+            color: #FF9800;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+        
         /* Programas */
         .programs {
-            background: #f0f7ff;
+            background: white;
         }
         
         .programs-grid {
@@ -182,7 +247,7 @@
         }
         
         .program-card {
-            background: white;
+            background: #f0f7ff;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -220,7 +285,7 @@
         
         /* Galería */
         .gallery {
-            background: white;
+            background: #f0f7ff;
         }
         
         .gallery-grid {
@@ -249,7 +314,7 @@
         
         /* Contacto */
         .contact {
-            background: #f0f7ff;
+            background: white;
         }
         
         .contact-content {
@@ -399,6 +464,12 @@
             
             nav ul {
                 margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
             }
             
             .about-content, .contact-content {
@@ -416,6 +487,10 @@
             .hero h2 {
                 font-size: 2rem;
             }
+            
+            .mission-vision-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -432,12 +507,13 @@
                         <circle cx="45" cy="25" r="20" fill="#4CAF50" />
                         <circle cx="35" cy="45" r="20" fill="#E91E63" />
                     </svg>
-                    <h1>Pequeños Exploradores</h1>
+                    <h1>C.P.E.P. Gral Francisco De Miranda</h1>
                 </div>
                 <nav>
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#mision-vision">Misión y Visión</a></li>
                         <li><a href="#programas">Programas</a></li>
                         <li><a href="#galeria">Galería</a></li>
                         <li><a href="#contacto">Contacto</a></li>
@@ -450,8 +526,7 @@
     <!-- Sección Hero -->
     <section class="hero" id="inicio">
         <div class="hero-content">
-            <h2>Bienvenidos a
-            C.P.E.P. GRAL FRANCISCO DE MIRANDA</h2>
+            <h2>Bienvenidos a C.P.E.P. GRAL FRANCISCO DE MIRANDA</h2>
             <p>Donde cada día es una nueva aventura para aprender, crecer y descubrir el mundo</p>
             <a href="#contacto" class="btn">Solicitar Información</a>
         </div>
@@ -463,13 +538,35 @@
             <h2 class="section-title">Sobre Nosotros</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>En <strong>Pequeños Exploradores</strong>, creemos que los primeros años de vida son fundamentales para el desarrollo integral de los niños. Nuestro enfoque se basa en proporcionar un ambiente seguro, estimulante y afectuoso donde los niños puedan desarrollar su curiosidad natural y amor por el aprendizaje.</p>
+                    <p>En <strong>C.P.E.P. Gral Francisco De Miranda</strong>, creemos que los primeros años de vida son fundamentales para el desarrollo integral de los niños. Nuestro enfoque se basa en proporcionar un ambiente seguro, estimulante y afectuoso donde los niños puedan desarrollar su curiosidad natural y amor por el aprendizaje.</p>
                     <p>Nuestro equipo de educadores altamente calificados está comprometido con el desarrollo cognitivo, emocional, social y físico de cada niño, respetando su individualidad y ritmo de aprendizaje.</p>
                     <p>Contamos con instalaciones modernas y seguras diseñadas específicamente para las necesidades de los niños en edad preescolar, con espacios amplios para el juego, áreas de aprendizaje especializadas y un patio exterior con áreas verdes.</p>
                 </div>
                 <div class="about-image">
-                    <img src=https://www.instagram.com/p/CWBsEVMP-En/?igsh=MXBrNjN4Y2ZpZ3l1bQ=" alt="Niños jugando en el colegio">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Niños jugando en el colegio">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Misión y Visión -->
+    <section class="mission-vision" id="mision-vision">
+        <div class="container">
+            <h2 class="section-title">Misión y Visión</h2>
+            <div class="mission-vision-grid">
+                <div class="mission-card">
+                    <h3>Misión</h3>
+                    <p>Somos institución educativa del nivel inicial, que posee un personal altamente calificado, siendo nuestro propósito fundamental, ofrecer una enseñanza integral basada en principios políticos, humanísticos, ecológicos y sociales, en atención a los valores éticos y morales apegados a los lineamientos y normativas legales de la Secretaría Regional de Educación.</p>
+                </div>
+                <div class="vision-card">
+                    <h3>Visión</h3>
+                    <p>Ser la primera Institución del nivel inicial para brindar una educación integral, con un personal altamente calificado, en búsqueda de la excelencia y los valores, apoyados por los padres, representantes y la comunidad educativa, de acuerdo con los parámetros legales y en atención a los principios constructivista.</p>
+                </div>
+            </div>
+            <div class="peic-lema">
+                <h3>PEIC: Gotas de Bond</h3>
+                <p>Nuestro Proyecto Educativo Integral Comunitario "Gotas de Bond" tiene como objetivo fomentar valores de solidaridad, respeto y amor al prójimo en nuestros estudiantes, formando ciudadanos comprometidos con su comunidad.</p>
+                <div class="lema">"mi segundo hogar"</div>
             </div>
         </div>
     </section>
@@ -522,10 +619,10 @@
                     <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Juego al aire libre">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Arte y manualidades">
+                    <img src="https://images.unsplash.com/photo-1583339522870-0d9f28cef33f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Arte y manualidades">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Celebraciones especiales">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Celebraciones especiales">
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Actividades musicales">
@@ -549,11 +646,11 @@
                         <p><i>📞</i> 0414-6024437</p>
                         <p><i>✉️</i> cpepgralfranciscodemirandalosa@gmail.com</p>
                         <p><i>🕒</i> Mañana Lunes a Viernes: 7:00 am - 12:00 pm</p>
-                        <p><i>🕒</i> Tarde  Lunes a VIernes: 1:00 am - 5:00 pam </p>
+                        <p><i>🕒</i> Tarde Lunes a Viernes: 1:00 pm - 5:00 pm</p>
                     </div>
                     <div class="map">
                         <!-- Mapa simulado -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d605.1369957445827!2d-71.65637620143077!3d10.668647735535691!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1761840095004!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d605.1369957445827!2d-71.65637620143077!3d10.668647735535691!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1761840095004!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -591,8 +688,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Los Angelitos</h3>
+                    <h3>C.P.E.P. Gral Francisco De Miranda</h3>
                     <p>Formando mentes curiosas y corazones bondadosos desde 2005.</p>
+                    <p><strong>PEIC: Gotas de Bond</strong></p>
+                    <p><em>"mi segundo hogar"</em></p>
                     <div class="social-icons">
                         <a href="#"><i>f</i></a>
                         <a href="#"><i>in</i></a>
@@ -605,6 +704,7 @@
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#mision-vision">Misión y Visión</a></li>
                         <li><a href="#programas">Programas</a></li>
                         <li><a href="#galeria">Galería</a></li>
                         <li><a href="#contacto">Contacto</a></li>
@@ -613,9 +713,9 @@
                 <div class="footer-column">
                     <h3>Horarios</h3>
                     <ul>
-                      <h3>Mañana</h3>
+                        <li><strong>Mañana</strong></li>
                         <li>Lunes a Viernes: 7:00 am - 12:00 pm</li>
-                        <h3>Tarde</h3>
+                        <li><strong>Tarde</strong></li>
                         <li>Lunes a Viernes: 1:00 pm - 5:00 pm</li>
                     </ul>
                 </div>
